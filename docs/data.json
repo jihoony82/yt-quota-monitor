@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04T14:14:04.746Z",
+  "updatedAt": "2026-09-04T14:28:20.079Z",
   "projects": [
     {
       "label": "라이브모아 메인",
@@ -9,57 +9,57 @@
       "percent": null,
       "status": "ok",
       "error": null,
-      "checkedAt": "2026-09-04T14:14:02.611Z"
+      "checkedAt": "2026-09-04T14:28:16.440Z"
     },
     {
       "label": "라이브모아 서브2",
       "projectId": "livemore-504508",
-      "limit": null,
+      "limit": 10000,
       "usage": null,
       "percent": null,
-      "status": "error",
-      "error": "403 Forbidden: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Permission denied to get quota on service [youtube.googleapis.com]\\nHelp Token: AbluAGtWLNZSZZjDC-GLTIspLmnP_7GpGRgcj0M_Pbv4GspXEAr-nIlGFoblEWANkLXZV-Zwx9sXVF8vREU18KRfw_ztM1G6n_-Gq__6dgR5FwJe\",\n    \"status\": \"PERMISSION_DENIED\",\n    \"de",
-      "checkedAt": "2026-09-04T14:14:03.227Z"
+      "status": "ok",
+      "error": null,
+      "checkedAt": "2026-09-04T14:28:17.109Z"
     },
     {
       "label": "라이브모아 서브3",
       "projectId": "rd-live-507401",
-      "limit": null,
+      "limit": 10000,
       "usage": null,
       "percent": null,
-      "status": "error",
-      "error": "403 Forbidden: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Permission denied to get quota on service [youtube.googleapis.com]\\nHelp Token: AbluAGuOt6tkBwZmmghFo9dEnU-PRZVKpG6R6KtAY9FjqjiQRVJlISBsG_27JVJRtyze5L9o_rYigoNTvTL5My2yzDO513ycYRYZpUmOue9H7x7O\",\n    \"status\": \"PERMISSION_DENIED\",\n    \"de",
-      "checkedAt": "2026-09-04T14:14:03.637Z"
+      "status": "ok",
+      "error": null,
+      "checkedAt": "2026-09-04T14:28:18.022Z"
     },
     {
       "label": "라이브모아 서브4",
       "projectId": "live-4th",
-      "limit": null,
+      "limit": 10000,
       "usage": null,
       "percent": null,
-      "status": "error",
-      "error": "403 Forbidden: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Permission denied to get quota on service [youtube.googleapis.com]\\nHelp Token: AbluAGsuH4VLJhCWUxBDqGvxQ6luLGW4G6YkgRalyHjQsu7vdJ4MrgM4T8uc5iPqWkUeVDsYXUDTQQ8LtETA2psLrWIPaWKMmsZ7r_jNGUBF2GWL\",\n    \"status\": \"PERMISSION_DENIED\",\n    \"de",
-      "checkedAt": "2026-09-04T14:14:03.850Z"
+      "status": "ok",
+      "error": null,
+      "checkedAt": "2026-09-04T14:28:18.424Z"
     },
     {
       "label": "정치탈탈",
       "projectId": "politaltal",
-      "limit": null,
+      "limit": 10000,
       "usage": null,
       "percent": null,
-      "status": "error",
-      "error": "403 Forbidden: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Permission denied to get quota on service [youtube.googleapis.com]\\nHelp Token: AbluAGt8WWS6Ubr-PwZ5kaI0y-8NA9Fkm_xVyXST69UZ95ylGN4cSevIXLk6pUmK39jJCrChRBBVqm7WbaV4f-YXC6FwmOJRPckhvgPXDkPLtiry\",\n    \"status\": \"PERMISSION_DENIED\",\n    \"de",
-      "checkedAt": "2026-09-04T14:14:04.152Z"
+      "status": "ok",
+      "error": null,
+      "checkedAt": "2026-09-04T14:28:18.832Z"
     },
     {
       "label": "미분류(카홀릭/코코요 후보)",
       "projectId": "active-cosine-457006-v8",
-      "limit": null,
+      "limit": 10000,
       "usage": null,
       "percent": null,
-      "status": "error",
-      "error": "403 Forbidden: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Permission denied to get quota on service [youtube.googleapis.com]\\nHelp Token: AbluAGvqjHtgLKvGNlvCsETB2t1ipHG1dPy0fxLhjR9ujOcTsu7ToXp15FFvKGuIdW0ely3cEDt-ANPGINQ7Byy-Zx8b-ufPE4odBd5uwwAWtvv2\",\n    \"status\": \"PERMISSION_DENIED\",\n    \"de",
-      "checkedAt": "2026-09-04T14:14:04.441Z"
+      "status": "ok",
+      "error": null,
+      "checkedAt": "2026-09-04T14:28:19.344Z"
     }
   ]
 }
