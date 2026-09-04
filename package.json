@@ -1,0 +1,13 @@
+{
+  "name": "yt-quota-monitor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "유튜브 API 여러 프로젝트의 일일 쿼터를 상시 체크하는 측정기",
+  "scripts": {
+    "check": "node scripts/check-quota.mjs"
+  },
+  "dependencies": {
+    "google-auth-library": "^9.14.1"
+  }
+}

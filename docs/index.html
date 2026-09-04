@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>유튜브 API 쿼터 측정기</title>
+<style>
+  :root {
+    --bg: #0b0d12;
+    --card: #151822;
+    --border: #262b3a;
+    --text: #e6e8ee;
+    --muted: #8b91a5;
+    --green: #34c471;
+    --yellow: #e6b93c;
+    --red: #ef5757;
+    --gray: #565c6e;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", sans-serif;
+    padding: 24px 16px 64px;
+  }
+  header {
+    max-width: 900px;
+    margin: 0 auto 24px;
+  }
+  h1 {
+    font-size: 20px;
+    margin: 0 0 4px;
+  }
+  .sub {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .card .label {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+  .card .pid {
+    color: var(--muted);
+    font-size: 11px;
+    font-family: ui-monospace, monospace;
+    margin-bottom: 14px;
+  }
+  .bar-track {
+    height: 8px;
+    border-radius: 5px;
+    background: #1e2230;
+    overflow: hidden;
+    margin: 10px 0 8px;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 5px;
+  }
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+  }
+  .stat-row .num {
+    font-family: ui-monospace, monospace;
+    color: var(--text);
+  }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-top: 10px;
+  }
+  .badge.ok { background: rgba(52,196,113,.15); color: var(--green); }
+  .badge.warn { background: rgba(230,185,60,.15); color: var(--yellow); }
+  .badge.error { background: rgba(239,87,87,.15); color: var(--red); }
+  .badge.unmeasured { background: rgba(86,92,110,.2); color: var(--muted); }
+  footer {
+    max-width: 900px;
+    margin: 32px auto 0;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+  }
+  #reset-countdown {
+    font-family: ui-monospace, monospace;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>🎥 유튜브 API 쿼터 측정기</h1>
+  <div class="sub">
+    마지막 갱신: <span id="updated-at">-</span> ·
+    다음 리셋까지 <span id="reset-countdown">-</span>
+  </div>
+</header>
+
+<div class="grid" id="grid"></div>
+
+<footer>
+  15분마다 자동 갱신 · 소비량 미계측 프로젝트는 한도만 표시됩니다
+</footer>
+
+<script>
+async function load() {
+  const res = await fetch("./data.json", { cache: "no-store" });
+  const data = await res.json();
+
+  document.getElementById("updated-at").textContent =
+    new Date(data.updatedAt).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
+
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+
+  for (const p of data.projects) {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    const hasUsage = p.usage != null && p.limit;
+    const percent = hasUsage ? p.percent : null;
+    const color = !hasUsage
+      ? "var(--gray)"
+      : percent >= 80
+      ? "var(--red)"
+      : percent >= 60
+      ? "var(--yellow)"
+      : "var(--green)";
+
+    const badgeClass = p.status === "error" ? "error" : !hasUsage ? "unmeasured" : p.status === "warn" ? "warn" : "ok";
+    const badgeText = p.status === "error" ? "확인 실패" : !hasUsage ? "소비량 미계측" : `${percent}%`;
+
+    card.innerHTML = `
+      <div class="label">${p.label}</div>
+      <div class="pid">${p.projectId}</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:${hasUsage ? Math.min(percent, 100) : 100}%; background:${color}"></div>
+      </div>
+      <div class="stat-row">
+        <span>${p.status === "error" ? (p.error || "오류") : "오늘 사용량"}</span>
+        <span class="num">${hasUsage ? `${p.usage.toLocaleString()} / ${p.limit.toLocaleString()}` : (p.limit ? `한도 ${p.limit.toLocaleString()}` : "-")}</span>
+      </div>
+      <span class="badge ${badgeClass}">${badgeText}</span>
+    `;
+    grid.appendChild(card);
+  }
+}
+
+function updateCountdown() {
+  const now = new Date();
+  const kstNow = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
+  const resetHour = 16;
+  const next = new Date(kstNow);
+  next.setHours(resetHour, 0, 0, 0);
+  if (kstNow >= next) next.setDate(next.getDate() + 1);
+  const diffMs = next - kstNow;
+  const h = Math.floor(diffMs / 3600000);
+  const m = Math.floor((diffMs % 3600000) / 60000);
+  document.getElementById("reset-countdown").textContent = `${h}시간 ${m}분`;
+}
+
+load();
+updateCountdown();
+setInterval(updateCountdown, 30000);
+setInterval(load, 60000);
+</script>
+</body>
+</html>

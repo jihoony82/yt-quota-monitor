@@ -1,0 +1,8 @@
+[
+  { "label": "라이브모아 메인", "projectId": "livemore-505306", "secretName": "GCP_SA_LIVEMORE_505306" },
+  { "label": "라이브모아 서브2", "projectId": "livemore-504508", "secretName": "GCP_SA_LIVEMORE_504508" },
+  { "label": "라이브모아 서브3", "projectId": "rd-live-507401", "secretName": "GCP_SA_RD_LIVE_507401" },
+  { "label": "라이브모아 서브4", "projectId": "live-4th", "secretName": "GCP_SA_LIVE_4TH" },
+  { "label": "정치탈탈", "projectId": "politaltal", "secretName": "GCP_SA_POLITALTAL" },
+  { "label": "미분류(카홀릭/코코요 후보)", "projectId": "active-cosine-457006-v8", "secretName": "GCP_SA_ACTIVE_COSINE" }
+]
