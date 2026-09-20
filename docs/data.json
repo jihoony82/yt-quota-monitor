@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-20T11:58:21.012Z",
+  "updatedAt": "2026-09-20T15:19:34.975Z",
   "projects": [
     {
       "label": "라이브모아 메인",
@@ -9,7 +9,7 @@
       "percent": null,
       "status": "ok",
       "error": null,
-      "checkedAt": "2026-09-20T11:58:18.833Z"
+      "checkedAt": "2026-09-20T15:19:32.078Z"
     },
     {
       "label": "라이브모아 서브2",
@@ -19,7 +19,7 @@
       "percent": null,
       "status": "ok",
       "error": null,
-      "checkedAt": "2026-09-20T11:58:19.310Z"
+      "checkedAt": "2026-09-20T15:19:32.805Z"
     },
     {
       "label": "라이브모아 서브3",
@@ -29,7 +29,7 @@
       "percent": null,
       "status": "ok",
       "error": null,
-      "checkedAt": "2026-09-20T11:58:19.732Z"
+      "checkedAt": "2026-09-20T15:19:33.322Z"
     },
     {
       "label": "라이브모아 서브4",
@@ -39,7 +39,7 @@
       "percent": null,
       "status": "ok",
       "error": null,
-      "checkedAt": "2026-09-20T11:58:20.134Z"
+      "checkedAt": "2026-09-20T15:19:33.731Z"
     },
     {
       "label": "정치탈탈",
@@ -49,7 +49,7 @@
       "percent": null,
       "status": "ok",
       "error": null,
-      "checkedAt": "2026-09-20T11:58:20.376Z"
+      "checkedAt": "2026-09-20T15:19:34.142Z"
     },
     {
       "label": "미분류(카홀릭/코코요 후보)",
@@ -59,7 +59,7 @@
       "percent": null,
       "status": "ok",
       "error": null,
-      "checkedAt": "2026-09-20T11:58:20.723Z"
+      "checkedAt": "2026-09-20T15:19:34.559Z"
     }
   ]
 }
